@@ -11,11 +11,11 @@ users = {
     "usernames": {
         "agencia1": {
             "name": "Agência Alpha",
-            "password": hashed_passwords[0]
+            "password": "pbkdf2:sha256:260000$LsBtK6Am6xY0NHYd$81bdb9b8b503ce6e922209ce1c122091aa1e34d0eb05a66ebfc226edb6d56cf9"
         },
         "agencia2": {
             "name": "Agência Beta",
-            "password": hashed_passwords[1]
+            "password": "pbkdf2:sha256:260000$3ZHpPBJDbYDiNk3u$d905040f1709428274e28d3dca74f30f26bbd224c5ea1ef8d6d37f0543c6833b"
         }
     }
 }
