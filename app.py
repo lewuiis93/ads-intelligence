@@ -3,10 +3,6 @@ import streamlit_authenticator as stauth
 import requests
 import pandas as pd
 
-# ✅ 1. Gera os hashes das senhas (fora do dicionário)
-hashed_passwords = stauth.Hasher(["senha123", "segredo456"]).generate()
-
-# ✅ 2. Define os usuários com os hashes prontos
 users = {
     "usernames": {
         "agencia1": {
@@ -20,17 +16,18 @@ users = {
     }
 }
 
-# ✅ 3. Autenticador
 authenticator = stauth.Authenticate(
-    users, "ads-intelligence", "abcdef", cookie_expiry_days=1
+    users,
+    "ads-intelligence-cookie",
+    "abcdef",
+    cookie_expiry_days=1
 )
 
-# ✅ 4. Login
 name, authentication_status, username = authenticator.login("Login", "main")
 
-if authentication_status == False:
+if authentication_status is False:
     st.error("Usuário ou senha incorretos.")
-elif authentication_status == None:
+elif authentication_status is None:
     st.warning("Por favor, entre com usuário e senha.")
 elif authentication_status:
     authenticator.logout("Sair", "sidebar")
