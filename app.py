@@ -3,10 +3,10 @@ import streamlit_authenticator as stauth
 import requests
 import pandas as pd
 
-# --- USUÁRIOS TESTE ---
-# Gerar senhas hash uma vez
+# ✅ 1. Gera os hashes das senhas (fora do dicionário)
 hashed_passwords = stauth.Hasher(["senha123", "segredo456"]).generate()
 
+# ✅ 2. Define os usuários com os hashes prontos
 users = {
     "usernames": {
         "agencia1": {
@@ -20,10 +20,12 @@ users = {
     }
 }
 
+# ✅ 3. Autenticador
 authenticator = stauth.Authenticate(
     users, "ads-intelligence", "abcdef", cookie_expiry_days=1
 )
 
+# ✅ 4. Login
 name, authentication_status, username = authenticator.login("Login", "main")
 
 if authentication_status == False:
