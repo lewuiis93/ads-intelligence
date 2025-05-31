@@ -18,8 +18,8 @@ users = {
 
 authenticator = stauth.Authenticate(
     users,
-    "ads-intelligence-cookie",
-    "abcdef",
+    "ads-intel-cookie-v1",
+    "ultrasecreta1234567890",
     cookie_expiry_days=1
 )
 
